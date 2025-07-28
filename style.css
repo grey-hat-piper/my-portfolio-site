@@ -1,0 +1,341 @@
+/* ------------------- RESET ------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+/* ------------------- NAVIGATION ------------------- */
+.site-header {
+  background-color: #1c1c1c;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #333;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fdd835;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo img {
+  width: 30px;
+}
+
+.nav-tabs {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-tabs li a {
+  color: #eaeaea;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-tabs li a:hover,
+.nav-tabs li a:focus {
+  border-bottom: 2px solid #fdd835;
+  color: #fdd835;
+}
+
+/* ------------------- GRID LAYOUT ------------------- */
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  padding: 40px 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ------------------- LEFT COLUMN ------------------- */
+.left-column {
+  background: #1b1b1b;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fdd835;
+  margin-bottom: 15px;
+}
+
+.profile-section h2 {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+  color: #fdd835;
+}
+
+.contact-info,
+.skills-panel {
+  margin-bottom: 25px;
+}
+
+.contact-info a {
+  color: #fdd835;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.skills-panel h3 {
+  margin-bottom: 10px;
+}
+
+.skills-panel ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-panel li {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.skills-panel img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ------------------- RIGHT COLUMN ------------------- */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ------------------- CARD STYLING ------------------- */
+.card {
+  background: #1b1b1b;
+  padding: 25px 30px;
+  border-radius: 8px;
+  border-left: 4px solid #fdd835;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #fdd835;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #fdd835;
+}
+
+.card p {
+  color: #ccc;
+}
+
+/* ------------------- FLICKER EFFECT ------------------- */
+.flicker-border {
+  border-left: 4px solid #fdd835;
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { border-color: #fdd835; }
+  50% { border-color: #fdd83533; }
+}
+
+/* ------------------- EDUCATION & EXPERIENCE ------------------- */
+.edu-entry,
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.edu-logo,
+.company-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 3px;
+}
+
+.edu-entry h3,
+.experience-item h3 {
+  margin-bottom: 5px;
+}
+
+.edu-entry p,
+.experience-item p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.experience-item span {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ------------------- DOWNLOAD CV ------------------- */
+.download-cv {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #fdd835;
+  color: #121212;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.download-cv:hover {
+  background: #fff933;
+}
+
+/* ------------------- PROJECTS ------------------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #262626;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #fdd83588;
+}
+
+.project-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 15px;
+}
+
+.project-info h4 {
+  color: #fdd835;
+  margin-bottom: 5px;
+}
+
+/* ------------------- CONTACT FORM ------------------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  background: #2a2a2a;
+  color: #f5f5f5;
+  border: 1px solid #555;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.submit-button {
+  padding: 12px;
+  background: #fdd835;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background: #fff933;
+}
+
+/* ------------------- FOOTER ------------------- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #181818;
+  color: #888;
+  font-size: 0.9rem;
+  border-top: 1px solid #2c2c2c;
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .left-column {
+    order: 2;
+  }
+
+  .right-column {
+    order: 1;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .left-column {
+    order: -1; /* ⬅ Moves sidebar above on mobile */
+  }
+
+  .right-column {
+    order: 0;
+  }
+
+  .nav-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
