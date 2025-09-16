@@ -309,7 +309,7 @@ body {
   }
 
   .nav-tabs {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
   }
 
