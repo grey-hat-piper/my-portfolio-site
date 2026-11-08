@@ -1,50 +1,55 @@
-# my-portfolio-site
-First portfolio site ever; 
-Prince Derek Martey | Aspiring Software Developer Portfolio
+# Prince Derek Martey — Portfolio
 
-Hi there! I'm Prince Derek Martey , an aspiring Software Engineer with a passion for Embedded Systems, AI/ML, Cybersecurity, and the art of building things that actually work.
-This is my personal portfolio website, crafted not just to showcase my skills and projects, but to reflect who I am ; methodical, curious, and a little obsessed with doing things the Batman way: silent, precise, impactful.
+> Silent. Precise. Impactful.
 
-# PREVIEW : ![Portfolio Screenshot](assets/preview.png)
-# What’s Inside?
+Personal portfolio of **Prince Derek Tettey Martey** — Electrical/Electronic Engineer (KNUST) working across embedded systems, machine learning, software development and project management. Based in Accra, Ghana.
 
-- A brief dive into who I am
-- My academic journey
-- Real-world experience (internships, field work)
-- Hands-on tech projects (hardware + software)
-- Contact section for connection
+**Live site:** https://grey-hat-piper.github.io/my-portfolio-site/
 
-All built with clean HTML/CSS, styled in dark mode because let’s face it, light mode isn’t Gotham-approved.🤣
+![Portfolio preview](assets/preview.png)
 
-# Tech Stack
+## The Gotham experience
 
-- HTML5  
-- Vanilla CSS3 with grid/flex layout, animations & responsiveness  
-- GitHub Pages for live deployment
+- **Bat-Signal hero** with a sweeping searchlight, generated Gotham skyline with twinkling windows, parallax and a glitching name
+- **Rain, lightning and flying bats** — all vanilla canvas/CSS/Web Animations
+- **Press `B`** (or the Bat-Signal button) to light the signal and release a swarm of bats
+- Cursor spotlight, 3D-tilt cards, scroll-drawn mission timeline, animated counters, typed role line
+- Fully responsive, keyboard accessible, and respects `prefers-reduced-motion`
 
-Simple. Fast. Purposeful.
+## What's inside
 
-# Live Site
+| File | Section |
+| --- | --- |
+| 01 Profile | About, industries of interest, key numbers |
+| 02 Arsenal | Design & simulation tools, programming, engineering disciplines, professional skills |
+| 03 Mission Log | FlyRank · Legacy Girls College · Ghana Standards Authority · Ghana Armed Forces |
+| 04 Training Grounds | KNUST · Power Learn Project · MTF + leadership roles |
+| 05 Case Files | Kali-Linux Honeypot · Vegetation Detection System · Facility Management System |
+| 06 Contact | Email, phone, LinkedIn, GitHub and a contact form (opens your mail app) |
 
-Check it out here:  
->>(https://grey-hat-piper.github.io/my-portfolio-site/)
+## Tech
 
-# How to Run This Project
+Plain HTML5, CSS3 and vanilla JavaScript — no build step, no dependencies. Hosted on GitHub Pages.
 
-Clone it. Customize it. Deploy it. You know the drill.
+```
+index.html   structure & content
+style.css    design tokens, layout, animation
+script.js    preloader, rain, skyline, bats, scroll effects, form
+assets/      images, logos, CV
+```
 
-IN GIT BASH;
+## Run locally
+
+```bash
 git clone https://github.com/grey-hat-piper/my-portfolio-site.git
-
 cd my-portfolio-site
+python3 -m http.server 8000   # then open http://localhost:8000
+```
 
-# Inspiration & Why I Built This
-I wanted a portfolio that didn’t just tick boxes but actually tells my story ;one where engineering meets creativity. Whether it's AI, Arduino, or software logic, my mission is to build meaningful tech, solve tough problems, and always keep learning.
+(Serve over HTTP rather than opening the file directly — the bat emblem uses CSS masks, which browsers block on `file://`.)
 
-If you want to collaborate, mentor, or just chat tech... I’m all ears:
+## Contact
 
-📧 Email: marteyderek08@gmail.com
-
-💼 LinkedIn: https://www.linkedin.com/in/prince-derek-martey-159194342
-
-💻 GitHub: grey-hat-piper
+- Email: marteyderek08@gmail.com
+- LinkedIn: https://www.linkedin.com/in/prince-derek-martey-159194342
+- GitHub: [grey-hat-piper](https://github.com/grey-hat-piper)

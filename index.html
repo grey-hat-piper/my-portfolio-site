@@ -2,153 +2,434 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prince Derek Martey | Portfolio</title>
-  <link rel="shortcut icon" href="assets/batman-logo.svg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prince Derek Martey | Engineer · ML · Embedded · Software</title>
+  <meta name="description" content="Prince Derek Tettey Martey — Electrical/Electronic Engineer (KNUST) working across embedded systems, machine learning, software development and project management. Accra, Ghana." />
+  <meta name="theme-color" content="#05060a" />
+  <meta property="og:title" content="Prince Derek Martey | Engineer · ML · Embedded · Software" />
+  <meta property="og:description" content="Silent, precise, impactful engineering. Electrical power, embedded systems, AI/ML and software." />
+  <meta property="og:image" content="assets/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="shortcut icon" href="assets/batman-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Header Navigation Tabs -->
-  <header class="site-header">
-    <div class="nav-container">
-      <div class="logo">
-        <img src="assets/batman-logo.svg" alt="Batman Logo" />
-        <span><h1>Prince Derek Martey</h1></span>
-      </div>
-      <nav>
-        <ul class="nav-tabs">
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <!-- Preloader: the signal lights up -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-signal"><span class="bat-mask"></span></div>
+    <p class="pre-text mono">INITIALIZING GOTHAM NETWORK <b id="pre-pct">0</b>%</p>
+    <div class="pre-bar"><i id="pre-fill"></i></div>
+  </div>
+
+  <div id="progress" aria-hidden="true"></div>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div id="flash" aria-hidden="true"></div>
+  <div id="signal-toast" class="mono" role="status" aria-live="polite"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Prince Derek Martey — back to top" id="brand">
+      <span class="bat-mask brand-bat"></span>
+      <span class="brand-name">P.D. MARTEY</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu"><span></span><span></span></button>
+    <nav aria-label="Primary">
+      <ul id="nav-links">
+        <li><a href="#about" data-spy="about"><i class="mono">01</i>Profile</a></li>
+        <li><a href="#arsenal" data-spy="arsenal"><i class="mono">02</i>Arsenal</a></li>
+        <li><a href="#missions" data-spy="missions"><i class="mono">03</i>Missions</a></li>
+        <li><a href="#training" data-spy="training"><i class="mono">04</i>Training</a></li>
+        <li><a href="#cases" data-spy="cases"><i class="mono">05</i>Case Files</a></li>
+        <li><a href="#contact" data-spy="contact" class="nav-cta">Signal Me</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="container">
-    <!-- Left Sidebar -->
-    <aside class="left-column">
-      <div class="profile-section">
-        <img src="assets/profile.jpg" alt="Prince Derek Martey" class="profile-pic" />
-        <h2>Prince Derek Martey</h2>
-        <p>Electrical/Electronic Engineering | Embeded Systems(Simulation and Design) | Aspiring Software Developer | Cyber Security, AI & ML Enthusiast | Project Management</p>
-        <p>Accra, Ghana</p>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="signal" aria-hidden="true">
+        <div class="beam"></div>
+        <div class="orb"><span class="bat-mask"></span></div>
+      </div>
+      <div class="stars" aria-hidden="true"></div>
+
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow mono"><span class="dot"></span>CASE FILE No. 0001 &nbsp;//&nbsp; ACCRA, GHANA</p>
+          <h1 class="name" aria-label="Prince Derek Tettey Martey">
+            <span class="glitch" data-text="PRINCE DEREK">PRINCE DEREK</span>
+            <span class="outline">TETTEY MARTEY</span>
+          </h1>
+          <p class="role mono"><span class="prompt">&gt;</span> <span id="typed" aria-live="off">Electrical &amp; Electronic Engineer</span><span class="caret"></span></p>
+          <p class="lede">
+            I build with <em>silence, precision and impact</em> — from electrical power systems and embedded hardware
+            to machine learning and the web apps that make facilities, fields and teams run better.
+          </p>
+          <div class="cta-row">
+            <a href="#cases" class="btn btn-primary"><span>View Case Files</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="assets/Prince-Derek-CV.pdf" download class="btn btn-ghost"><span>Download CV</span></a>
+            <button type="button" class="btn btn-signal" id="signal-btn" aria-label="Light the Bat-Signal"><span class="bat-mask"></span><span>Bat-Signal</span></button>
+          </div>
+          <ul class="socials" aria-label="Social links">
+            <li><a href="https://www.linkedin.com/in/prince-derek-martey-159194342" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.74 2.63 4.74 6.05V21h-4v-4.95c0-1.18-.02-2.7-1.65-2.7-1.65 0-1.9 1.29-1.9 2.62V21h-4z"/></svg></a></li>
+            <li><a href="https://github.com/grey-hat-piper" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
+            <li><a href="mailto:marteyderek08@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg></a></li>
+          </ul>
+        </div>
+
+        <figure class="portrait tilt" aria-label="Portrait of Prince Derek Martey">
+          <div class="frame">
+            <img src="assets/profile.jpg" alt="Prince Derek Martey" width="975" height="1280" />
+            <span class="scan"></span>
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          </div>
+          <figcaption class="mono">
+            <span>SUBJECT: P.D.T. MARTEY</span>
+            <span class="status"><i></i>AVAILABLE FOR MISSIONS</span>
+          </figcaption>
+        </figure>
       </div>
 
-      <div class="contact-info">
-        <h3>Contact</h3>
-        <p><strong>Email:</strong> marteyderek08@gmail.com</p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/prince-derek-martey-159194342" target="_blank">View Profile</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/grey-hat-piper" target="_blank">github.com/grey-hat-piper</a></p>
+      <div class="scroll-hint mono" aria-hidden="true"><span>SCROLL</span><i></i></div>
+      <div class="skyline" id="skyline" aria-hidden="true"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="file mono">FILE 01 // PROFILE</span>
+          <h2>The <b>Detective</b> Behind the Cowl</h2>
+        </header>
+
+        <div class="about-grid">
+          <article class="panel reveal">
+            <p class="big">
+              Graduate <strong>BSc. Electrical/Electronic Engineering</strong> with a strong academic background,
+              complemented by certifications in <strong>project management</strong> and <strong>computer programming</strong> —
+              a commitment to continuous professional growth.
+            </p>
+            <p>
+              Skilled in leadership and team collaboration, and proficient in the use and design of technical software.
+              Passionate about contributing to <strong>Electrical Power</strong>, <strong>Electronics</strong>,
+              <strong>Industrial Control &amp; Automation</strong>, <strong>Renewable Energy</strong>, <strong>Agriculture</strong>,
+              <strong>Software Development</strong>, <strong>AI &amp; Machine Learning</strong> and Technology through innovative,
+              safety-driven engineering solutions — while continuously advancing my technical and professional competencies in dynamic environments.
+            </p>
+            <ul class="tags" aria-label="Industries of interest">
+              <li>Electrical Power</li><li>Electronics</li><li>Industrial Control &amp; Automation</li>
+              <li>Renewable Energy</li><li>Agriculture</li><li>Software Development</li><li>AI &amp; ML</li>
+            </ul>
+          </article>
+
+          <div class="stats reveal" role="list">
+            <div class="stat" role="listitem"><b data-count="4">0</b><span>Missions completed<br/><small>internships &amp; service</small></span></div>
+            <div class="stat" role="listitem"><b data-count="33" data-suffix="+">0</b><span>Staff coordinated<br/><small>at Legacy Girls College</small></span></div>
+            <div class="stat" role="listitem"><b data-count="3">0</b><span>Countries trained in<br/><small>Ghana · Kenya · Portugal</small></span></div>
+            <div class="stat" role="listitem"><b data-count="5">0</b><span>Languages coded<br/><small>MATLAB · Python · Arduino · SQL · JS</small></span></div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="skills-panel">
-        <h3>Languages</h3>
-        <ul>
-          <li><img src="assets/html5.png" alt="HTML5" /> HTML5</li>
-          <li><img src="assets/css3.png" alt="CSS3" /> CSS3</li>
-          <li><img src="assets/python.webp" alt="Python" /> Python</li>
-          <li><img src="assets/arduino.webp" alt="Arduino" /> Arduino C++</li>
-        </ul>
-        <a href="assets/Prince-Derek-CV.pdf" download class="download-cv">Download CV</a>
+    <!-- ARSENAL -->
+    <section class="section" id="arsenal">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="file mono">FILE 02 // ARSENAL</span>
+          <h2>The <b>Utility</b> Belt</h2>
+        </header>
+
+        <div class="gadgets">
+          <article class="gadget tilt reveal">
+            <span class="g-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M12 2 3 7v10l9 5 9-5V7zM3 7l9 5 9-5M12 12v10"/></svg></span>
+            <h3>Design &amp; Simulation</h3>
+            <p>Technical software for design, modelling and security labs.</p>
+            <ul class="chips"><li>Autodesk Revit (MEP)</li><li>PVsyst</li><li>Proteus</li><li>Tinkercad</li><li>Kali Linux</li></ul>
+          </article>
+          <article class="gadget tilt reveal">
+            <span class="g-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m8 8-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg></span>
+            <h3>Advanced Programming</h3>
+            <p>From microcontroller firmware to data and web.</p>
+            <ul class="chips"><li>MATLAB</li><li>Python</li><li>Arduino wiring</li><li>SQL</li><li>JavaScript</li></ul>
+            <div class="icons" aria-hidden="true"><img src="assets/python.webp" alt="" /><img src="assets/arduino.webp" alt="" /><img src="assets/html5.png" alt="" /><img src="assets/css3.png" alt="" /></div>
+          </article>
+          <article class="gadget tilt reveal">
+            <span class="g-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg></span>
+            <h3>Engineering &amp; Tech</h3>
+            <p>Applied disciplines across hardware, software and data.</p>
+            <ul class="chips"><li>Web Development</li><li>AI &amp; Machine Learning Engineering</li><li>Database Querying &amp; Design</li><li>Electrical Service Design &amp; Wiring</li></ul>
+          </article>
+          <article class="gadget tilt reveal">
+            <span class="g-ico"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 2 4 5v6c0 5 3.400 8.800 8 11 4.600-2.200 8-6 8-11V5z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="m8.500 12 2.500 2.500 4.500-5"/></svg></span>
+            <h3>Command &amp; Conduct</h3>
+            <p>The human side of getting hard things done safely.</p>
+            <ul class="chips"><li>Leadership &amp; Teamwork</li><li>Project Management</li><li>Analytical Thinking</li><li>Occupational Health &amp; Safety</li><li>Microsoft Office</li><li>Google Workspace</li></ul>
+          </article>
+        </div>
       </div>
-    </aside>
+    </section>
 
-    <!-- Right Content -->
-    <section class="right-column">
-      <section id="about" class="card flicker-border">
-        <h2>About Me</h2>
-        <p>
-          I am a passionate aspiring Software Engineer and AI researcher with a mission to harness technology to solve real-world problems.
-          With experience across robotics, ML systems, and backend engineering, I bridge logic with creativity, just like Gotham’s most iconic detective, THE BATMAN.
-        </p>
-      </section>
+    <!-- EXPERIENCE -->
+    <section class="section" id="missions">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="file mono">FILE 03 // EXPERIENCE</span>
+          <h2>Mission <b>Log</b></h2>
+        </header>
 
-      <section id="education" class="card flicker-border">
-        <h2>Education</h2>
-        <div class="edu-entry">
-          <img src="assets/power-learn-project-logo.png" alt="PLPacademy" class="edu-logo" />
-          <div>
-            <h3>Power Learn Project - PLPacademy</h3>
-            <p>Software Engineering</p>
-          </div>
-        </div>
-        <div class="edu-entry">
-          <img src="assets/knust-logo.png" alt="KNUST" class="edu-logo" />
-          <div>
-            <h3>Kwame Nkrumah University of Science and Technology - KNUST</h3>
-            <p>Bachelor's Degree in Electrical/Electronic Engineering</p>
-          </div>
-        </div>
-        <div class="edu-entry">
-          <img src="assets/mtf-logo.jpg" alt="MTF" class="edu-logo" />
-          <div>
-            <h3>Institute of Management, Technology and Finance - MTF</h3>
-            <p>Project Management</p>
-          </div>
-        </div>
-      </section>
+        <ol class="timeline" id="timeline">
+          <span class="spine" aria-hidden="true"><i id="spine-fill"></i></span>
 
-      <section id="experience" class="card flicker-border">
-        <h2>Experience</h2>
-        <div class="experience-item">
-          <img src="assets/ghanastandards-logo.png" alt="GSA" class="company-logo" />
-          <div>
-            <h3>Student Intern</h3>
-            <h4>GHANA STANDARDS AUTHORITY</h4>
-            <span>2024</span>
-            <p>Gained hands-on experience in Electrical testing and diagnostics</p>
-          </div>
-        </div>
-        <div class="experience-item">
-          <img src="assets/armedforces-logo.png" alt="ARMEDFORCES" class="company-logo" />
-          <div>
-            <h3>Electrical Technician</h3>
-            <h4>GHANA ARMED FORCES</h4>
-            <span>2023</span>
-            <p>Exposure to practical and technical field activities in Electrical Engineering</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="card flicker-border">
-        <h2>Projects</h2>
-        <div class="project-grid">
-          <div class="project-card">
-            <img src="assets/project1.jpg" alt="Kali-linux Honeypot" />
-            <div class="project-info">
-              <h4>Kali-linux Honeypot</h4>
-              <p>Real-time apprehension to catch attackers</p>
+          <li class="mission reveal">
+            <span class="node" aria-hidden="true"></span>
+            <div class="m-card tilt">
+              <div class="m-top">
+                <span class="logo-badge" aria-hidden="true">FR</span>
+                <div>
+                  <h3>Machine Learning Intern</h3>
+                  <p class="org">FlyRank <small>(Remote)</small></p>
+                </div>
+                <time class="mono">8 Jun 2026 — 29 Sep 2026</time>
+              </div>
+              <p>Interned at FlyRank AI as an AI intern, focusing on Machine Learning.</p>
+              <ul class="chips"><li>Machine Learning</li><li>AI</li><li>Remote</li></ul>
             </div>
-          </div>
-          <div class="project-card">
-            <img src="assets/project2.jpg" alt="Vegetation Detection System" />
-            <div class="project-info">
-              <h4>Vegetation Detection System</h4>
-              <p>The use of photo-electric sensors to detect vegetation abnormality under transmission lines</p>
+          </li>
+
+          <li class="mission reveal">
+            <span class="node" aria-hidden="true"></span>
+            <div class="m-card tilt">
+              <div class="m-top">
+                <span class="logo-badge" aria-hidden="true">LGC</span>
+                <div>
+                  <h3>Facilities Assistant <small>Utilities, Energy &amp; Environment</small></h3>
+                  <p class="org">Legacy Girls College <small>(National Service)</small></p>
+                </div>
+                <time class="mono">5 Jan 2026 — 11 Oct 2026</time>
+              </div>
+              <ul class="bullets">
+                <li>Assisted in the management of <strong>33+ staff members</strong>, including skilled and non-skilled workers.</li>
+                <li>Developed a <strong>Facility Management System web app</strong> for facilities health tracking and management.</li>
+                <li>Maintained utility records, inspection logs and consumption reports.</li>
+                <li>Tracked electrical systems and consumption; identified energy-saving opportunities.</li>
+                <li>Coordinated water-shortage response and monitored water consumption, distribution and availability.</li>
+                <li>Waste management — collection, segregation, disposal and contractor coordination.</li>
+                <li>Coordinated farm, fish pond, bee hive, landscaping and related environmental activities.</li>
+              </ul>
+              <ul class="chips"><li>Facilities</li><li>Energy</li><li>Environment</li><li>Web App</li><li>Leadership</li></ul>
             </div>
+          </li>
+
+          <li class="mission reveal">
+            <span class="node" aria-hidden="true"></span>
+            <div class="m-card tilt">
+              <div class="m-top">
+                <img class="logo-img" src="assets/ghanastandards-logo.png" alt="Ghana Standards Authority logo" width="52" height="52" loading="lazy" />
+                <div>
+                  <h3>Student Intern</h3>
+                  <p class="org">Ghana Standards Authority <small>(GSA)</small></p>
+                </div>
+                <time class="mono">1 Oct 2024 — 1 Nov 2024</time>
+              </div>
+              <ul class="bullets">
+                <li>Gained hands-on experience in electrical testing and diagnostics.</li>
+                <li>Improved technical skills and familiarity with industry standards, codes and practices in Electrical Engineering.</li>
+              </ul>
+              <ul class="chips"><li>Electrical Testing</li><li>Diagnostics</li><li>Standards &amp; Codes</li></ul>
+            </div>
+          </li>
+
+          <li class="mission reveal">
+            <span class="node" aria-hidden="true"></span>
+            <div class="m-card tilt">
+              <div class="m-top">
+                <img class="logo-img" src="assets/armedforces-logo.png" alt="Ghana Armed Forces logo" width="52" height="52" loading="lazy" />
+                <div>
+                  <h3>Electrical Technician Intern</h3>
+                  <p class="org">Ghana Armed Forces <small>(49 Engineering Regiment, Burma Camp)</small></p>
+                </div>
+                <time class="mono">16 Oct 2023 — 24 Nov 2023</time>
+              </div>
+              <p>Exposure to practical and technical field activities in:</p>
+              <ul class="bullets">
+                <li>Sub-station maintenance</li>
+                <li>House wiring and rewiring</li>
+                <li>Repairs and assembling of household electrical equipment</li>
+              </ul>
+              <ul class="chips"><li>Sub-station</li><li>Wiring</li><li>Field Work</li></ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EDUCATION + LEADERSHIP -->
+    <section class="section" id="training">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="file mono">FILE 04 // EDUCATION &amp; LEADERSHIP</span>
+          <h2>Training <b>Grounds</b></h2>
+        </header>
+
+        <div class="edu-grid">
+          <article class="edu tilt reveal">
+            <img src="assets/knust-logo.png" alt="KNUST logo" width="72" height="72" loading="lazy" />
+            <time class="mono">Dec 2021 — Nov 2025</time>
+            <h3>BSc. Electrical/Electronic Engineering</h3>
+            <p>Kwame Nkrumah University of Science and Technology (KNUST)<br/><small>Kumasi, Ghana</small></p>
+          </article>
+          <article class="edu tilt reveal">
+            <img src="assets/power-learn-project-logo.png" alt="Power Learn Project logo" width="128" height="72" loading="lazy" />
+            <time class="mono">Jul 2025 — Dec 2025</time>
+            <h3>ML/AI Engineering</h3>
+            <p>Power Learn Project (PLP)<br/><small>Nairobi, Kenya</small></p>
+          </article>
+          <article class="edu tilt reveal">
+            <img src="assets/mtf-logo.jpg" alt="MTF Institute logo" width="72" height="72" loading="lazy" />
+            <time class="mono">June 2025</time>
+            <h3>Project Management</h3>
+            <p>Institute of Management, Technology and Finance (MTF)<br/><small>Lisboa, Portugal</small></p>
+          </article>
+        </div>
+
+        <div class="lead-block reveal">
+          <h3 class="sub mono">// LEADERSHIP</h3>
+          <div class="lead-grid">
+            <article class="lead">
+              <span class="medal" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="m12 3 2.700 5.500 6 .9-4.400 4.200 1 6-5.300-2.800-5.300 2.800 1-6L3.300 9.400l6-.9z"/></svg></span>
+              <div>
+                <time class="mono">2024 — 2025 Academic Year</time>
+                <h4>Project Manager</h4>
+                <p>WAIMM-KNUST — West African Institute of Mining, Metallurgy and Petroleum</p>
+              </div>
+            </article>
+            <article class="lead">
+              <span class="medal" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM8.500 13.500 7 21l5-2.500 5 2.500-1.500-7.500"/></svg></span>
+              <div>
+                <time class="mono">June 2025</time>
+                <h4>Executive Diploma in Leadership</h4>
+                <p>MTF Institute of Management, Technology and Finance</p>
+              </div>
+            </article>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="contact" class="card flicker-border">
-        <h2>Contact Me</h2>
-        <form class="contact-form">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
-          <button type="submit" class="submit-button">Send Message</button>
-        </form>
-      </section>
+    <!-- PROJECTS -->
+    <section class="section" id="cases">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="file mono">FILE 05 // PROJECTS</span>
+          <h2>Case <b>Files</b></h2>
+        </header>
+
+        <div class="cases">
+          <article class="case tilt reveal">
+            <div class="case-media">
+              <img src="assets/project1.jpg" alt="Kali Linux desktop running on a laptop" loading="lazy" />
+              <span class="stamp mono">CLASSIFIED</span>
+            </div>
+            <div class="case-body">
+              <span class="mono tag">CYBERSECURITY</span>
+              <h3>Kali-Linux Honeypot</h3>
+              <p>Real-time apprehension to catch attackers — a decoy system built on Kali Linux to lure, observe and trap hostile activity.</p>
+              <ul class="chips"><li>Kali Linux</li><li>Security</li><li>Monitoring</li></ul>
+            </div>
+          </article>
+
+          <article class="case tilt reveal">
+            <div class="case-media">
+              <img src="assets/project2.jpg" alt="Model transmission towers with photo-electric sensors under the line" loading="lazy" />
+              <span class="stamp mono">FIELD TESTED</span>
+            </div>
+            <div class="case-body">
+              <span class="mono tag">EMBEDDED · POWER</span>
+              <h3>Vegetation Detection System</h3>
+              <p>The use of photo-electric sensors to detect vegetation abnormality under transmission lines.</p>
+              <ul class="chips"><li>Arduino</li><li>Photo-electric sensors</li><li>Transmission lines</li></ul>
+            </div>
+          </article>
+
+          <article class="case tilt reveal">
+            <div class="case-media fms" aria-label="Illustration of a facilities dashboard">
+              <svg viewBox="0 0 400 240" role="img" aria-label="Stylised dashboard with consumption bars">
+                <defs><linearGradient id="fmsg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd21f"/><stop offset="1" stop-color="#ffd21f" stop-opacity=".1"/></linearGradient></defs>
+                <rect x="14" y="14" width="372" height="212" rx="10" fill="#0a0d16" stroke="#222a3b"/>
+                <rect x="14" y="14" width="372" height="26" rx="10" fill="#10141f"/>
+                <circle cx="30" cy="27" r="4" fill="#ffd21f"/><circle cx="44" cy="27" r="4" fill="#3b4660"/><circle cx="58" cy="27" r="4" fill="#3b4660"/>
+                <g class="bars">
+                  <rect x="40" y="90" width="26" height="110" fill="url(#fmsg)"/><rect x="78" y="120" width="26" height="80" fill="url(#fmsg)"/>
+                  <rect x="116" y="70" width="26" height="130" fill="url(#fmsg)"/><rect x="154" y="105" width="26" height="95" fill="url(#fmsg)"/>
+                  <rect x="192" y="140" width="26" height="60" fill="url(#fmsg)"/><rect x="230" y="85" width="26" height="115" fill="url(#fmsg)"/>
+                </g>
+                <path class="trend" d="M40 150 L90 130 L130 98 L170 120 L210 160 L250 108 L290 90 L340 70" fill="none" stroke="#7fb2ff" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="290" y="110" width="80" height="12" rx="6" fill="#1b2231"/><rect x="290" y="110" width="52" height="12" rx="6" fill="#ffd21f"/>
+                <rect x="290" y="136" width="80" height="12" rx="6" fill="#1b2231"/><rect x="290" y="136" width="30" height="12" rx="6" fill="#7fb2ff"/>
+                <rect x="290" y="162" width="80" height="12" rx="6" fill="#1b2231"/><rect x="290" y="162" width="66" height="12" rx="6" fill="#ffd21f"/>
+              </svg>
+              <span class="stamp mono">IN SERVICE</span>
+            </div>
+            <div class="case-body">
+              <span class="mono tag">WEB APP · FACILITIES</span>
+              <h3>Facility Management System</h3>
+              <p>A web app for facilities health tracking and management, built during national service at Legacy Girls College — utilities, inspections and consumption in one place.</p>
+              <ul class="chips"><li>Web App</li><li>Utilities</li><li>Energy tracking</li></ul>
+            </div>
+          </article>
+        </div>
+        <p class="more reveal"><a href="https://github.com/grey-hat-piper" target="_blank" rel="noopener" class="link-arrow">More on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="file mono">FILE 06 // CONTACT</span>
+          <h2>Light the <b>Signal</b></h2>
+        </header>
+
+        <div class="contact-grid">
+          <div class="reveal">
+            <p class="big">Got a problem that needs solving — power, embedded, ML, software or a team to steady? Send a signal. I'll answer.</p>
+            <ul class="reach">
+              <li><span class="mono">EMAIL</span><a href="mailto:marteyderek08@gmail.com">marteyderek08@gmail.com</a></li>
+              <li><span class="mono">PHONE</span><a href="tel:+233248876300">+233 24 887 6300</a></li>
+              <li><span class="mono">LINKEDIN</span><a href="https://www.linkedin.com/in/prince-derek-martey-159194342" target="_blank" rel="noopener">prince-derek-martey</a></li>
+              <li><span class="mono">GITHUB</span><a href="https://github.com/grey-hat-piper" target="_blank" rel="noopener">grey-hat-piper</a></li>
+              <li><span class="mono">BASE</span><span>Accra, Greater Accra, Ghana</span></li>
+            </ul>
+          </div>
+
+          <form class="form panel reveal" id="contact-form" novalidate>
+            <label><span class="mono">YOUR NAME</span><input type="text" name="name" autocomplete="name" required /></label>
+            <label><span class="mono">YOUR EMAIL</span><input type="email" name="email" autocomplete="email" required /></label>
+            <label><span class="mono">MESSAGE</span><textarea name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn btn-primary"><span>Send Signal</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <p class="form-note mono" id="form-note" role="status">Opens your email app with the message ready to send.</p>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 Prince Derek Martey. All rights reserved.</p>
+    <div class="wrap foot">
+      <span class="bat-mask foot-bat" aria-hidden="true"></span>
+      <p>&copy; <span id="year">2026</span> Prince Derek Tettey Martey. Silent. Precise. Impactful.</p>
+      <p class="mono hint">Psst — press <kbd>B</kbd> to light the Bat-Signal.</p>
+    </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
